@@ -12,9 +12,11 @@
    // stimulus support, and Verilator config.
    m5_makerchip_module   // (Expanded in Nav-TLV pane.)
 \TLV
-   $reset = *reset;
+   
    
    |calc
+      @1
+         $reset = *reset;  
       ?$valid
          @1
             $aa_sq[31:0] = $aa[3:0] * $aa;
