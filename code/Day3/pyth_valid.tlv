@@ -17,12 +17,12 @@
    |calc
       ?$valid
          @1
-            $a_sq[31:0] = $a * $a;
-            $b_sq[31:0] = $b * $b;
+            $aa_sq[31:0] = $aa[3:0] * $aa;
+            $bb_sq[31:0] = $bb[3:0] * $bb;
          @2
-            $c_sq[31:0] = $a_sq + $b_sq;
+            $cc_sq[31:0] = $aa_sq + $bb_sq;
          @3
-            $c[31:0] = sqrt($c_sq);
+            $cc[31:0] = sqrt($cc_sq);
    
    // Assert these to end simulation (before the cycle limit).
    *passed = *cyc_cnt > 40;
