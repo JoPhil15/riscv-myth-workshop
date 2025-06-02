@@ -7,6 +7,7 @@
    
    //use(m5-1.0)   /// uncomment to use M5 macro library.
 \SV
+   `include "sqrt32.v";
    // Macro providing required top-level module definition, random
    // stimulus support, and Verilator config.
    m5_makerchip_module   // (Expanded in Nav-TLV pane.)
