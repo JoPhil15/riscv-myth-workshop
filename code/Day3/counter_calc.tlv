@@ -9,11 +9,13 @@
 \SV
    // Macro providing required top-level module definition, random
    // stimulus support, and Verilator config.
-   m5_makerchip_module   // (Expanded in Nav-TLV pane)
+   m5_makerchip_module   // (Expanded in Nav-TLV pane.)
 \TLV
-   //COUNTER & CACLULATOR IN PIPELINE
-   $reset = *reset;
+   
+   
    |calc
+      @0
+         $reset = *reset;
       @1
          $val1 [31:0] = >>2$out [31:0]; 
          $val2 [31:0] = $rand2 [31:0]; 
@@ -23,9 +25,11 @@
          $quot[31:0] = $val1 [31:0] / $val2 [31:0]; 
          $valid = $reset ? 0 : ( 1 + >>1$valid);
       @2
-         $out[31:0] = ($reset || !$valid) ? 32'd0: ($op [1] ? ($op [0] ?
-         $quot[31:0]:$prod[31:0]): ($op[0] ? $diff [31:0] : $sum[31:0]));
-         
+         $out[31:0] = ($reset || !$valid) ? 32'd0 :
+            ($op[1] ? 
+                ($op[0] ? $quot[31:0] : $prod[31:0]) :
+                ($op[0] ? $diff[31:0] : $sum[31:0])
+            );
          
    
    // Assert these to end simulation (before the cycle limit).
