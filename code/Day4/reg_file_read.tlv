@@ -89,6 +89,8 @@
          $rf_rd_en2 = $rs2_valid;
          $rf_rd_index1 = $rs1;
          $rf_rd_index2 = $rs2;
+         $src1_value = $rf_rd_data1;
+         $src2_value = $rf_rd_data2;
 
       // YOUR CODE HERE
       // ...
